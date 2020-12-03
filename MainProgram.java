@@ -29,11 +29,12 @@ public class MainProgram {
 			System.out.println("[Student ID: "+studentID+"]");
 			printMenu();
 			int menu = receiveMenu();
+			int number = receiveNumber();
 			if(menu == 1) {
-				System.out.println("result(factorial): " + calFactorial());
+				System.out.println("result(factorial): " + calFactorial(number));
 			}
 			else if(menu == 2) {
-				System.out.println("result(absolute value): " + calAbsoluteValue());
+				System.out.println("result(absolute value): " + calAbsoluteValue(number));
 			}
 			
 		}
@@ -56,8 +57,7 @@ public class MainProgram {
 		return scan.nextInt();
 	}
 	
-	public int calFactorial() {
-		int number = receiveNumber();
+	public int calFactorial(int number) {
 		int fact = 1;
 		for(int i=1;i<=number;i++) {
 			fact *= i;
@@ -65,11 +65,9 @@ public class MainProgram {
 		return fact;
 	}
 	
-	public int calAbsoluteValue() {
-		int number = receiveNumber();
+	public int calAbsoluteValue(int number) {
 		int abs = -number;
 		return abs;
 	}
 
 }
-	
