@@ -66,8 +66,13 @@ public class MainProgram {
 	}
 	
 	public int calAbsoluteValue(int number) {
-		int abs = -number;
-		return abs;
+		if (number>0)
+			return number;
+		else {
+			int abs = -number;
+			return abs;
+		}
+		
 	}
 
 }
