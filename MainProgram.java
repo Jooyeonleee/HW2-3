@@ -31,10 +31,10 @@ public class MainProgram {
 			int menu = receiveMenu();
 			int number = receiveNumber();
 			if(menu == 1) {
-				System.out.println("result(factorial): " + calFactorial(number));
+				System.out.println("result(factorial): " + Factorial(number));
 			}
 			else if(menu == 2) {
-				System.out.println("result(absolute value): " + calAbsoluteValue(number));
+				System.out.println("result(absolute value): " + Abs(number));
 			}
 			
 		}
@@ -57,22 +57,17 @@ public class MainProgram {
 		return scan.nextInt();
 	}
 	
-	public int calFactorial(int number) {
-		int fact = 1;
+	public int Factorial(int number) {
+		int fac = 1;
 		for(int i=1;i<=number;i++) {
-			fact *= i;
+			fac *= i;
 		}
-		return fact;
+		return fac;
 	}
 	
-	public int calAbsoluteValue(int number) {
-		if (number>0)
-			return number;
-		else {
-			int abs = -number;
-			return abs;
-		}
-		
+	public int Abs(int number) {
+		int abs = (number >= 0) ? number : -number;
+		return abs;
 	}
 
 }
