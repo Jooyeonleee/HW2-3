@@ -25,6 +25,22 @@ public class MainProgram {
 	public void runModule(int studentID) {
 		if (studentID == 11530)
 			System.out.println("No. It is the professor ID.\n");
+		else if (studentID == 1714376) {
+			System.out.println("[Student ID: "+studentID+"]");
+			printMenu_1714376();
+			int menu = receiveMenu();
+			if(menu == 1) {
+				int number = receiveNumber();
+				System.out.println("result(fibonacci): " + calFibonacci(number) + "\n");
+			}
+			else if(menu == 2) {
+				System.out.print("Enter the first number: ");
+				int a = receiveGCDnumbers();
+				System.out.print("Enter the second number: ");
+				int b = receiveGCDnumbers();
+				System.out.println("result(GCD): " + calGCD(a, b) + "\n");
+			}
+		}
 		else {
 			System.out.println("[Student ID: "+studentID+"]");
 			printMenu();
@@ -38,6 +54,11 @@ public class MainProgram {
 			}
 			
 		}
+	}
+	
+	public void printMenu_1714376() {
+		System.out.println("1. Calculate fibonacci");
+		System.out.println("2. Calculate greatest common division");
 	}
 	
 	public void printMenu() {
@@ -55,6 +76,28 @@ public class MainProgram {
 		Scanner scan = new Scanner(System.in);
 		System.out.print("Enter a number: ");
 		return scan.nextInt();
+	}
+	
+	public int receiveGCDnumbers() {
+		Scanner scan = new Scanner(System.in);
+		return scan.nextInt();
+	}
+	
+	public int calFibonacci(int number) {
+		if (number == 1) return 0;
+		if (number == 2) return 1;
+		return calFibonacci(number-1) + calFibonacci(number-2);
+	}
+	
+	public int calGCD(int a, int b) {
+		if (a>=b) {
+			if(b == 0) return a;
+			return calGCD(b, a % b);
+		}
+		else {
+			if(a == 0) return b;
+			return calGCD(a, b % a);
+		}
 	}
 	
 	public int Factorial(int number) {
