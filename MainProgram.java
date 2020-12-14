@@ -41,6 +41,28 @@ public class MainProgram {
 				System.out.println("result(GCD): " + calGCD(a, b) + "\n");
 			}
 		}
+		else if (studentID == 1712905){
+			System.out.println("[Student ID: "+studentID+"]");
+			printMenu();
+			int menu = receiveMenu1712905();
+			if (menu == 1){
+				int number = receiveNumber1712905();
+				if(number>=0){
+					System.out.println("result(factorial): "+ Factorial1712905(number));
+				}
+				else{
+					System.out.println("Wrong number");
+;				}
+			}
+			else if (menu == 2){
+				int number = receiveNumber1712905();
+				System.out.println("result(absolute value): " + Abs1712905(number));
+			}
+			else{
+				System.out.println("Wrong menu number");
+			}
+			
+		}
 		else {
 			System.out.println("[Student ID: "+studentID+"]");
 			printMenu();
@@ -60,8 +82,13 @@ public class MainProgram {
 		System.out.println("1. Calculate fibonacci");
 		System.out.println("2. Calculate greatest common division");
 	}
-	
+
 	public void printMenu() {
+		System.out.println("1. Calculate factorial");
+		System.out.println("2. Calculate absolute value");
+	}
+
+	public void printMenu1712905() {
 		System.out.println("1. Calculate factorial");
 		System.out.println("2. Calculate absolute value");
 	}
@@ -82,6 +109,24 @@ public class MainProgram {
 		Scanner scan = new Scanner(System.in);
 		return scan.nextInt();
 	}
+
+	public int receiveMenu1712905(){
+		Scanner scanMenu = new Scanner(System.in);
+		System.out.print("Enter menu number: ");
+		int num = scanMenu.nextInt();
+		if (num <1 || num>2){
+			return -1;
+		}
+		else{
+			return num;
+		}
+	}
+	public int receiveNumber1712905(){
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter a number: ");
+		return scan.nextInt();
+	}
+
 	
 	public int calFibonacci(int number) {
 		if (number == 1) return 0;
@@ -107,10 +152,23 @@ public class MainProgram {
 		}
 		return fac;
 	}
-	
+	public int Factorial1712905(int number){
+		int factorial = 1;
+		for(int i = 1;i <= number;i++){
+			factorial *= i;
+		}
+		return factorial;
+	}
 	public int Abs(int number) {
 		int abs = (number >= 0) ? number : -number;
 		return abs;
 	}
+	
+	public int Abs1712905(int number){
+		int abs = (number >= 0) ? number : -number;
+		return abs;
+	}
+
+
 
 }
