@@ -86,6 +86,7 @@ public class MainProgram {
 				System.out.println("Wrong menu number");
 			}
 		}
+		
 		else if(studentID == 1713661) {
 			printMyCalculator_1713661(studentID);
 		}
@@ -232,9 +233,7 @@ public class MainProgram {
 		else return number;
 	}
 	
-	
-	
-	
+
 	public void printMyCalculator_1713661(int studentID) {
 		System.out.println("[Student ID: " + studentID +"]");
 		System.out.println("1.Calculate factorial");
@@ -244,10 +243,17 @@ public class MainProgram {
 		int menu = scanner.nextInt();
 		switch(menu) {
 			case 1:
-				int result1=calculateFactorial_1713661();
+				int numFact;
+				while(true) {
+					numFact = receiveNum_1713661();
+					if(numFact>=0)	break;
+					System.out.println("Error! Input positive number");
+				}
+				int result1 = calculateFactorial_1713661(numFact);
 				break;
 			case 2:
-				int result2=calculateAbsoluteValue_1713661();
+				int numAbs = receiveNum_1713661();
+				int result2 = calculateAbsoluteValue_1713661(numAbs);
 				break;
 			default:
 				System.out.println("Error! Input right number!");
@@ -255,38 +261,28 @@ public class MainProgram {
 		}
 	}
 	
-	public void calculateFactorial_1713661() {
-		int numFact;
+	public int receiveNum_1713661() {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter a number: ");
+		return scan.nextInt();
+	}
+	
+	public int calculateFactorial_1713661(int numFact) {
 		int resultFact = 1;
-		
-		while(true) {
-			System.out.print("Enter a number: ");
-			Scanner scan = new Scanner(System.in);
-			numFact = scan.nextInt();
-			if(numFact < 0) {
-				System.out.println("Error! Input positive number!");
-			}
-			else break;
-		}
 		for(int i=numFact;i>0;i--) {
 			resultFact *= i; 
 		}
 		System.out.println(numFact+"! ="+resultFact+"\n");
+		return resultFact;
 		
 	}
 	
-	public void calculateAbsoluteValue_1713661() {
-		int numAbs;
+	public int calculateAbsoluteValue_1713661(int numAbs) {
 		int resultAbs;
-		
-		System.out.print("Enter a number: ");
-		Scanner scan2 = new Scanner(System.in);
-		numAbs = scan2.nextInt();
+	
 		if(numAbs >=0) resultAbs = numAbs;
 		else resultAbs = -numAbs;
 		System.out.println("|"+numAbs+"| = "+resultAbs);
+		return resultAbs;
 	}
-
-
-
 }
