@@ -244,10 +244,10 @@ public class MainProgram {
 		int menu = scanner.nextInt();
 		switch(menu) {
 			case 1:
-				calculateFactorial_1713661();
+				int result1=calculateFactorial_1713661();
 				break;
 			case 2:
-				calculateAbsoluteValue_1713661();
+				int result2=calculateAbsoluteValue_1713661();
 				break;
 			default:
 				System.out.println("Error! Input right number!");
