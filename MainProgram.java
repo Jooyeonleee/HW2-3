@@ -86,7 +86,11 @@ public class MainProgram {
 				System.out.println("Wrong menu number");
 			}
 		}
-
+		
+		else if(studentID == 1713661) {
+			printMyCalculator_1713661(studentID);
+		}
+		
 		else {
 			System.out.println("[Student ID: "+studentID+"]");
 			printMenu();
@@ -228,7 +232,57 @@ public class MainProgram {
 		if (number < 0) return -number;
 		else return number;
 	}
+	
 
-
-
+	public void printMyCalculator_1713661(int studentID) {
+		System.out.println("[Student ID: " + studentID +"]");
+		System.out.println("1.Calculate factorial");
+		System.out.println("2.Calculate absolute value");
+		System.out.print("Enter menu number: ");
+		Scanner scanner = new Scanner(System.in);
+		int menu = scanner.nextInt();
+		switch(menu) {
+			case 1:
+				int numFact;
+				while(true) {
+					numFact = receiveNum_1713661();
+					if(numFact>=0)	break;
+					System.out.println("Error! Input positive number");
+				}
+				int result1 = calculateFactorial_1713661(numFact);
+				break;
+			case 2:
+				int numAbs = receiveNum_1713661();
+				int result2 = calculateAbsoluteValue_1713661(numAbs);
+				break;
+			default:
+				System.out.println("Error! Input right number!");
+			
+		}
+	}
+	
+	public int receiveNum_1713661() {
+		Scanner scan = new Scanner(System.in);
+		System.out.print("Enter a number: ");
+		return scan.nextInt();
+	}
+	
+	public int calculateFactorial_1713661(int numFact) {
+		int resultFact = 1;
+		for(int i=numFact;i>0;i--) {
+			resultFact *= i; 
+		}
+		System.out.println(numFact+"! ="+resultFact+"\n");
+		return resultFact;
+		
+	}
+	
+	public int calculateAbsoluteValue_1713661(int numAbs) {
+		int resultAbs;
+	
+		if(numAbs >=0) resultAbs = numAbs;
+		else resultAbs = -numAbs;
+		System.out.println("|"+numAbs+"| = "+resultAbs);
+		return resultAbs;
+	}
 }
